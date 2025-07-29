@@ -15,3 +15,22 @@ test('returns the sum of two numbers separated by comma', () => {
   const result = add("3,7");
   expect(result).toBe(10);
 });
+
+
+test('returns correct sum when newline and comma are mixed as delimiters', () => {
+  const result = add("1\n2,3");
+  expect(result).toBe(6);
+});
+
+
+//custom delimiter
+
+test('supports custom delimiter ";"', () => {
+  const result = add("//;\n1;2");
+  expect(result).toBe(3);
+});
+
+test('supports custom delimiter "|"', () => {
+  const result = add("//|\n4|5|6");
+  expect(result).toBe(15);
+});
