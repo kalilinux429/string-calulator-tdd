@@ -34,3 +34,12 @@ test('supports custom delimiter "|"', () => {
   const result = add("//|\n4|5|6");
   expect(result).toBe(15);
 });
+
+
+test('throws error if one negative number is present', () => {
+  expect(() => add("1,-2,3")).toThrow("negative numbers not allowed: -2");
+});
+
+test('throws error if multiple negative numbers are present', () => {
+  expect(() => add("-1,-4,3")).toThrow("negative numbers not allowed: -1, -4");
+});
